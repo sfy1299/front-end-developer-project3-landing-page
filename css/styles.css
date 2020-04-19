@@ -209,8 +209,16 @@ header {
 }
 
 header .navbar__menu li {
-  height: 40px;
+  height: 37px;
   margin-right: 20px;
+}
+
+header .navbar__menu li:hover {
+  cursor: pointer;
+}
+
+header .navbar__menu li.active {
+  border-bottom: 3px solid red;
 }
 
 header .navbar__menu li a {

@@ -28,15 +28,27 @@ const section3 = document.getElementById('section3');
  * Start Helper Functions
  *
  */
+function addActiveClass(item) {
+  nav.querySelectorAll('li').forEach((i) => {
+    i.setAttribute('class', '');
+  });
+
+  item.setAttribute('class', 'active');
+}
+
 function createHomeItem() {
   const listItem = document.createElement('li');
   const itemLink = document.createElement('a');
   const itemLinkText = document.createTextNode('Home');
 
+  listItem.setAttribute('id', 'home');
+  listItem.setAttribute('class', 'active');
   itemLink.appendChild(itemLinkText);
   listItem.appendChild(itemLink);
 
   listItem.addEventListener('click', () => {
+    addActiveClass(listItem);
+
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
@@ -56,6 +68,7 @@ function createListItem(num) {
   listItem.appendChild(itemLink);
 
   listItem.addEventListener('click', () => {
+    addActiveClass(listItem);
     window.scrollTo({
       top: sectionOffset,
       behavior: 'smooth',
@@ -74,7 +87,13 @@ function createListItem(num) {
 const homeItem = createHomeItem();
 nav.appendChild(homeItem);
 
-for (let i = 1; i < 4; i++) {
+// Scroll to the top when reload
+window.scrollTo({
+  top: 0,
+  behavior: 'smooth',
+});
+
+for (let i = 1; i < 5; i++) {
   const listItem = createListItem(i);
   nav.appendChild(listItem);
 }
